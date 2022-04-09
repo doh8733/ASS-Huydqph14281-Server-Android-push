@@ -1,0 +1,24 @@
+<script>
+    function previewFile() {
+        const preview = document.querySelector("#img_preview");
+        const file = document.querySelector("#image").files[0]
+        const anh_noi_dung_truyen = document.querySelector("#anh_noi_dung_truyen")
+        const reader = new FileReader();
+        reader.addEventListener('load',function () {
+            preview.src = reader.result;
+            anh_noi_dung_truyen.value = reader.result;
+        },false);
+        if (file){
+            reader.readAsDataURL(file)
+        }
+    }
+</script>
+
+<h1> sua moi sach</h1>
+<form method="post" action="">
+    Ten sach : <input type="text" name="book_name" value="{{itemBook.name}}"/><br>
+    Gia sach :<input type="number" name ="book_price" value="{{itemBook.price}}"/><br>
+    Tac gia : <input type="text" name="book_author" value="{{itemBook.author}}"><br>
+    Anh multer : <input type="file" id="imageM" name="upload_multer">
+    <button type="submit">Them</button>
+</form>

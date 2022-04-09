@@ -1,0 +1,26 @@
+<h1> them moi sach</h1>
+<script>
+    function previewFile() {
+        const preview = document.querySelector("#img_preview");
+        const file = document.querySelector("#image").files[0]
+        const anh_noi_dung_truyen = document.querySelector("#anh_noi_dung_truyen")
+        const reader = new FileReader();
+        reader.addEventListener('load',function () {
+            preview.src = reader.result;
+            anh_noi_dung_truyen.value = reader.result;
+        },false);
+        if (file){
+            reader.readAsDataURL(file)
+        }
+    }
+</script>
+<form method="post" action=""  enctype="multipart/form-data">
+    Ten sach : <input type="text" name="book_name"/><br>
+    Gia sach :<input type="number" name ="book_price"/><br>
+    Tac gia : <input type="text" name="book_author">
+
+    Anh multer : <input type="file" id="imageM" name="upload_multer">
+    <div class="mb-3">
+    </div>
+    <button type="submit">Them</button>
+</form>

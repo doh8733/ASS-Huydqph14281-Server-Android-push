@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <h3 class="navbar-brand" href="">Home</h3>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/book">Truyện</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/book/book-manager">Quản lý truyện</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/Users" class="nav-link active">Quản lý người dùng</a>
+                </li>
+
+
+            </ul>
+            <form class="d-flex" style="margin: 5px">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+
+        </div>
+    </div>
+</nav>
+
+<br>
+<a href="/book/add" class="btn btn-primary">Them</a>
+<br>
+<br>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Ten sach</th>
+        <th scope="col">Gia sach</th>
+        <th scope="col">Tac gia</th>
+        <th scope="col">Link noi dung</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each listBookManager}}
+        <tr>
+
+            <th>{{this.name}}</th>
+            <td>{{this.author}}</td>
+            <td>{{this.price}}</td>
+<!--            <th scope="col">{{#each this.image_detail}}-->
+<!--                <img style="height: 12rem" src="{{this}}" class="card-img-top card-img-top"> {{/each}} </th>-->
+
+            <td>
+                <a class="btn btn-primary" href="/book/edit/{{this._id}}">Sua</a>
+                <a class="btn btn-primary" href="/book/book-detail/{{this._id}}">Add-detail</a>
+                <a class="btn btn-primary" href="/book/delete/{{this._id}}">xoa</a>
+            </td>
+
+
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
